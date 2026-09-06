@@ -1,0 +1,25 @@
+class BankAccount:
+    def __init__(self, balance: float, account_number: str, currency: str):
+        self.balance = balance
+        self.account_number = account_number
+        self.currency = currency
+
+    def deposit(self, amount: float):
+        self.balance += amount
+        print("Deposited:", amount)
+
+    def withdraw(self, amount: float):
+        if amount > self.balance:
+            return "You can not withdraw money."
+        self.balance -= amount
+        print("Withdrawn:", amount)
+
+    def account_balance(self):
+        return f"You have {self.balance} {self.currency} in your account!"
+
+account = BankAccount(balance=100, account_number="L1508", currency="ALL")
+print(account.account_balance())
+account.deposit(200)
+print(account.balance)
+print(account.withdraw(400))
+print(account.balance)
